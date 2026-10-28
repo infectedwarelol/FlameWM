@@ -10,7 +10,7 @@ fn fixture_node(kind: NodeKind, id: &str, text: &str, image: Option<u16>) -> Com
         action: std::borrow::Cow::Borrowed(""),
         text: text.to_string().into(),
         image,
-        style: Style::default(),
+        style: Style::default().into(),
         hover_style: None,
         active_style: None,
     }
@@ -172,7 +172,8 @@ mod ui_scale_tests {
                         height: Length::Px(20.0),
                         background: ColorValue::Literal(Color::WHITE),
                         ..Style::default()
-                    },
+                    }
+                    .into(),
                     ..fixture_node(NodeKind::Element, "button", "", None)
                 },
             ],
@@ -760,7 +761,8 @@ mod geometry_mutation_tests {
                         width: Length::Px(800.0),
                         height: Length::Px(600.0),
                         ..Style::default()
-                    },
+                    }
+                    .into(),
                     ..fixture_node(NodeKind::Element, "desktop", "", None)
                 },
                 CompiledNode {
@@ -770,7 +772,8 @@ mod geometry_mutation_tests {
                         width: Length::Px(82.0),
                         height: Length::Px(82.0),
                         ..Style::default()
-                    },
+                    }
+                    .into(),
                     ..fixture_node(NodeKind::Element, "desktop-drag-ghost", "", None)
                 },
             ],
